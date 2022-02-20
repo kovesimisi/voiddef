@@ -3,3 +3,9 @@
 Project of the team "Void"
 
 Ez ment GIT-el :D
+
+--Misi oké
+
+
+
+--Loránd elvileg
