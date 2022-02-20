@@ -8,4 +8,4 @@ Ez ment GIT-el :D
 
 
 
---Loránd elvileg
+--Loránd elvileg #2
