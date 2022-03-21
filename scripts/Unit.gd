@@ -21,3 +21,6 @@ func hit():
 	print("unit hit")
 	if hp == 0:
 		queue_free()
+
+func imaunit():
+	pass

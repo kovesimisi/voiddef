@@ -41,3 +41,4 @@ shape = SubResource( 1 )
 
 [connection signal="timeout" from="Timer" to="." method="_cooldown_finished"]
 [connection signal="body_entered" from="Area" to="." method="_in_range"]
+[connection signal="body_exited" from="Area" to="." method="_out_range"]

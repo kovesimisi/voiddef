@@ -50,10 +50,10 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 70.0
 
 [node name="Tower" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47149, 0, -6.8917 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47149, 0, -3.16858 )
 
 [node name="Tower2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52263, 0, -12.7 )
 
 [node name="Tower3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91888, 0, 0.366731 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91888, 0, 8.18273 )
