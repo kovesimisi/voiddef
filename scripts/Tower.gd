@@ -1,9 +1,10 @@
 extends Spatial
 
+var type = "tower"
+
 export var projectile: PackedScene
 onready var timer = $Timer
 
-var type = "tower"
 var targets = []
 var ready = false
 
@@ -23,7 +24,6 @@ func shoot():
 	if !ready :
 		return
 		
-	print("spawned projectile")
 	var spawned = projectile.instance() as Spatial
 	spawned.transform.origin = $Area.global_transform.origin
 	spawned.target = targets.pop_front()

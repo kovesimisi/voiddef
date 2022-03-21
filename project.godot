@@ -38,4 +38,7 @@ common/enable_pause_aware_picking=true
 threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/shading/use_physical_light_attenuation=true
+quality/filters/msaa=2
+quality/filters/use_debanding=true
 environment/default_environment="res://default_env.tres"

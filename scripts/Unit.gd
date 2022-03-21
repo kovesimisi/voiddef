@@ -1,6 +1,7 @@
 extends KinematicBody
 
 var type = "unit"
+
 var target
 var team_id = 0
 export var hp = 2
@@ -15,13 +16,8 @@ func _process(delta):
 		if hit.collider.has_method("hit"):
 			hit.collider.hit()
 		queue_free()
-		print("destroyed unit")
 
 func hit():
 	hp -= 1
-	print("unit hit")
 	if hp == 0:
 		queue_free()
-
-func imaunit():
-	pass
