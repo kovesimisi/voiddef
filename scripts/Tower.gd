@@ -7,6 +7,7 @@ var targets = []
 var ready = false
 
 func _in_range(body):
+	#TODO: fix collision layers
 	if !body.has_method("imaunit"):
 		return
 	targets.push_back(body)
