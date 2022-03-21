@@ -1,5 +1,6 @@
 extends KinematicBody
 
+var type = "unit"
 var target
 var team_id = 0
 export var hp = 2

@@ -3,12 +3,13 @@ extends Spatial
 export var projectile: PackedScene
 onready var timer = $Timer
 
+var type = "tower"
 var targets = []
 var ready = false
 
 func _in_range(body):
 	#TODO: fix collision layers
-	if !body.has_method("imaunit"):
+	if not "type" in body or body.type!="unit":
 		return
 	targets.push_back(body)
 	shoot()

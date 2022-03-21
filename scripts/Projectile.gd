@@ -1,5 +1,6 @@
 extends KinematicBody
 
+var type = "projectile"
 var target : Spatial
 
 func _process(delta): 

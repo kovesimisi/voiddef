@@ -4,6 +4,7 @@ export var team_id = 0
 export var spawn_units = false
 export var unit : PackedScene
 
+var type = "castle"
 var count = 0
 
 onready var timer = $Timer
