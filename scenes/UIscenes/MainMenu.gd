@@ -1,5 +1,10 @@
 extends Control
 
+onready var b_new = get_node("MarginContainer/VBoxContainer/NewGameButton")
+
+func _ready():
+	b_new.grab_focus()
+
 func _on_NewGameButton_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")
 

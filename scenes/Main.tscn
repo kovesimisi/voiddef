@@ -59,17 +59,14 @@ shadow_bias = 0.2
 directional_shadow_mode = 0
 directional_shadow_max_distance = 70.0
 
-[node name="Tower" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.224, 0, -10.127 )
-
 [node name="Tower2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48992, 0.0209975, -12.7813 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97166, 0.0209975, -9.38946 )
+
+[node name="Tower4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60923, 0.0209975, -10.3789 )
 
 [node name="Tower3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.721, 0, 6.706 )
-
-[node name="Tower4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47149, -0.0765042, -3.16858 )
 
 [node name="box" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38159, 0 )
