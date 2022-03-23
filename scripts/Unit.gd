@@ -6,6 +6,9 @@ var target
 var team_id = 0
 export var hp = 2
 
+func _ready():
+	$Mesh.material = GameManager.unit_materials[team_id]
+
 func _process(delta):
 	var dir = target.global_transform.origin - global_transform.origin
 	dir = dir.normalized() * 5

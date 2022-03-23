@@ -36,11 +36,11 @@ rect_min_size = Vector2( 500, 0 )
 size_flags_horizontal = 8
 alignment = 1
 
-[node name="NewGameButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="SingleNewGameButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 75.0
-margin_top = 154.0
+margin_top = 114.0
 margin_right = 425.0
-margin_bottom = 229.0
+margin_bottom = 189.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 2 )
@@ -50,21 +50,41 @@ texture_disabled = ExtResource( 3 )
 texture_focused = ExtResource( 5 )
 expand = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/NewGameButton"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SingleNewGameButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "NEW GAME"
+text = "SINGLEPLAYER"
+align = 1
+valign = 1
+
+[node name="MultiNewGameButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+margin_left = 75.0
+margin_top = 193.0
+margin_right = 425.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MultiNewGameButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "MULTIPLAYER"
 align = 1
 valign = 1
 
 [node name="LoadButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 75.0
-margin_top = 233.0
+margin_top = 272.0
 margin_right = 425.0
-margin_bottom = 308.0
+margin_bottom = 347.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
-disabled = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
@@ -81,9 +101,9 @@ valign = 1
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 75.0
-margin_top = 312.0
+margin_top = 351.0
 margin_right = 425.0
-margin_bottom = 387.0
+margin_bottom = 426.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 2 )
@@ -102,9 +122,9 @@ valign = 1
 
 [node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_left = 75.0
-margin_top = 391.0
+margin_top = 430.0
 margin_right = 425.0
-margin_bottom = 466.0
+margin_bottom = 505.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 2 )
@@ -125,5 +145,6 @@ valign = 1
 position = Vector2( 365, 373 )
 texture = ExtResource( 6 )
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SingleNewGameButton" to="." method="_on_SingleNewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MultiNewGameButton" to="." method="_on_MultiNewGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

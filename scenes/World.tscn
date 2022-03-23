@@ -25,7 +25,7 @@ background_sky = SubResource( 2 )
 tonemap_mode = 4
 ssao_intensity = 13.08
 glow_enabled = true
-glow_hdr_threshold = 0.8
+glow_hdr_threshold = 2.0
 glow_bicubic_upscale = true
 adjustment_contrast = 1.08
 
@@ -36,13 +36,11 @@ script = ExtResource( 7 )
 [node name="Ground" type="CSGMesh" parent="."]
 mesh = SubResource( 1 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.730079, 0.683363, 0, -0.683363, 0.730079, 0, 30.2469, 31.6981 )
-fov = 50.0
-
 [node name="EnemyCastle" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.1637 )
 team_id = 1
+spawn_units = true
+unit = ExtResource( 4 )
 
 [node name="HomeCastle" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 16.3309 )
@@ -61,12 +59,17 @@ directional_shadow_max_distance = 70.0
 
 [node name="Tower2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97166, 0.0209975, -9.38946 )
+team_id = 1
 
 [node name="Tower4" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60923, 0.0209975, -10.3789 )
+team_id = 1
 
 [node name="Tower3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.721, 0, 6.706 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97166, 0.0209975, 8.18147 )
+
+[node name="Tower5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60923, 0.0209975, 7.19203 )
 
 [node name="box" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38159, 0 )
