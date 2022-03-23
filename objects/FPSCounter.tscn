@@ -9,6 +9,3 @@ margin_right = 64.0
 margin_bottom = 49.0
 text = "FPS"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
