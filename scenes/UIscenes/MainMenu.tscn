@@ -61,6 +61,7 @@ margin_right = 425.0
 margin_bottom = 308.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 4
+disabled = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
