@@ -21,8 +21,6 @@ unit-test:
 
 web:
   stage: export
-  dependencies:
-    - test
   script:
     - mkdir -v -p build/web
     - godot -v --export "HTML5" build/web/index.html
@@ -33,8 +31,6 @@ web:
 
 linux:
   stage: export
-  dependencies:
-    - test
   script:
     - mkdir -v -p build/linux
     - godot -v --export "Linux/X11" build/linux/$EXPORT_NAME.x86_64
@@ -45,8 +41,6 @@ linux:
 
 windows:
   stage: export
-    dependencies:
-    - test
   script:
     - mkdir -v -p build/windows
     - godot -v --export "Windows Desktop" build/windows/$EXPORT_NAME.exe
