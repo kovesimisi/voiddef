@@ -34,6 +34,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.765171 )
 script = ExtResource( 7 )
 
 [node name="Ground" type="CSGMesh" parent="."]
+cast_shadow = 0
 mesh = SubResource( 1 )
 
 [node name="EnemyCastle" parent="." instance=ExtResource( 2 )]
@@ -55,7 +56,8 @@ transform = Transform( 0.884873, 0.420182, -0.201114, -0.0216901, 0.468426, 0.88
 shadow_enabled = true
 shadow_bias = 0.2
 directional_shadow_mode = 0
-directional_shadow_max_distance = 70.0
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 64.3
 
 [node name="Tower2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97166, 0.0209975, -9.38946 )

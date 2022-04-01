@@ -57,6 +57,7 @@ common/enable_pause_aware_picking=true
 threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/directional_shadow/size=2048
 quality/shading/use_physical_light_attenuation=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/filters/msaa=2

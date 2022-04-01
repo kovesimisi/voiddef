@@ -18,6 +18,9 @@ handle_input_locally = false
 render_target_update_mode = 3
 audio_listener_enable_3d = true
 shadow_atlas_size = 1024
+shadow_atlas_quad_0 = 1
+shadow_atlas_quad_2 = 2
+shadow_atlas_quad_3 = 2
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
