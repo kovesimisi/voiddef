@@ -56,7 +56,7 @@ pages:
     - web
   script:
     - rm -rf 
-    - mv build/web public
+    - mv build/web/* public/
   artifacts:
     paths:
       - public
