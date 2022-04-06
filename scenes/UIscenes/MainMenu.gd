@@ -19,8 +19,8 @@ func _ready():
 	b_load.focus_mode = Control.FOCUS_NONE
 	b_load.disabled = true
 	
-	b_settings.focus_mode = Control.FOCUS_NONE
-	b_settings.disabled = true
+	#b_settings.focus_mode = Control.FOCUS_NONE
+	#b_settings.disabled = true
 	
 	b_single_new.grab_focus()
 
@@ -41,6 +41,9 @@ func _on_SingleNewGameButton_pressed():
 func _on_MultiNewGameButton_pressed():
 	get_tree().change_scene("res://scenes/LocalMulti.tscn")
 	
+
+func _on_SettingsButton_pressed():
+	get_tree().change_scene("res://scenes/UIscenes/Settings.tscn")
 
 func _on_toggle_fullscreen():
 	OS.window_fullscreen = !OS.window_fullscreen

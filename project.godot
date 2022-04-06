@@ -19,7 +19,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GraphicsSettings="*res://scripts/util/graphics_settings.gd"
+GraphicsSettings="*res://scripts/util/GraphicsSettings.gd"
 GameManager="*res://scripts/Game_manager.gd"
 
 [display]

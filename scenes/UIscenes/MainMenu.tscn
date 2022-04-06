@@ -147,4 +147,5 @@ texture = ExtResource( 6 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SingleNewGameButton" to="." method="_on_SingleNewGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MultiNewGameButton" to="." method="_on_MultiNewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
