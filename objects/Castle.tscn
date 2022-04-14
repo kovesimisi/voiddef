@@ -32,4 +32,4 @@ shape = SubResource( 1 )
 [node name="UnitSpawner" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10883, 0, 3.02938 )
 
-[connection signal="timeout" from="Timer" to="." method="_spawn"]
+[connection signal="timeout" from="Timer" to="." method="spawn_unit"]

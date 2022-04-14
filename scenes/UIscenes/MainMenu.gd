@@ -24,7 +24,6 @@ func _ready():
 	
 	b_single_new.grab_focus()
 
-
 func _on_ExitButton_pressed():
 	get_tree().quit(0)
 
