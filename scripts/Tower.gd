@@ -2,8 +2,9 @@ extends Spatial
 
 var type = "tower"
 export var team_id = 0
+export var hp = 5
 
-export var projectile: PackedScene
+var projectile
 onready var timer = $Timer
 onready var audio_player = $LaserSound
 
@@ -12,6 +13,7 @@ var ready = false
 
 func _ready():
 	$Mesh.material = GameManager.tower_materials[team_id]
+	projectile = preload("res://objects/Projectile.tscn")
 
 func _in_range(body):
 	#TODO: fix collision layers
@@ -27,7 +29,7 @@ func _cooldown_finished():
 func shoot():
 	if !ready or targets.empty() :
 		return
-		
+	
 	var spawned = projectile.instance() as Spatial
 	spawned.transform.origin = $Area.global_transform.origin
 	spawned.target = targets.pop_front()
@@ -47,3 +49,9 @@ func _out_range(body):
 
 func _process(delta):
 	shoot()
+
+func hit(dmg = 1):
+	print("tower hit")
+	hp -= dmg
+	if hp == 0:
+		GameManager.castles[team_id].destroy_tower(self)

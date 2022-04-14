@@ -14,9 +14,7 @@ const INTERACT = "interact_%d"
 
 func _ready():
 	GameManager.cursors[team_id] = self
-	var mat = SpatialMaterial.new()
-	mat.albedo_color = GameManager.team_colors[team_id]
-	$Mesh.material = mat
+	$Mesh.material.set_shader_param("albedo_color",  GameManager.team_colors[team_id])
 	
 	castle = GameManager.castles[team_id]
 
@@ -25,7 +23,9 @@ func _input(event):
 		interact()
 
 func interact():
-	castle.spawn_tower(global_transform.origin)
+	# selection area empty, place towers
+	if get_overlapping_bodies().size() == 0:
+		castle.spawn_tower(global_transform.origin)
 	
 
 func _process(delta):

@@ -2,6 +2,7 @@ extends KinematicBody
 
 var type = "projectile"
 var team_id = 0
+var atk = 1
 
 var target : Spatial
 
@@ -20,5 +21,5 @@ func _process(delta):
 	
 	if hit and "team_id" in hit.collider and hit.collider.team_id != team_id:
 		if hit.collider.has_method("hit"):
-			hit.collider.hit()
+			hit.collider.hit(atk)
 		queue_free()

@@ -9,11 +9,11 @@
 [node name="Main" parent="." instance=ExtResource( 2 )]
 
 [node name="PlayerCursor0" parent="Main" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 430 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 183.354 )
 monitorable = false
 
 [node name="PlayerCursor1" parent="Main" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -430 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -183.085 )
 monitorable = false
 team_id = 1
 

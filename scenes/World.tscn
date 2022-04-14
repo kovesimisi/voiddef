@@ -9,7 +9,7 @@
 
 [sub_resource type="PlaneMesh" id=1]
 material = ExtResource( 3 )
-size = Vector2( 1000, 1000 )
+size = Vector2( 500, 500 )
 
 [sub_resource type="ProceduralSky" id=2]
 sky_top_color = Color( 0.443137, 0.556863, 0.854902, 1 )
@@ -29,7 +29,6 @@ glow_bicubic_upscale = true
 adjustment_contrast = 1.08
 
 [node name="Main" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.765171 )
 script = ExtResource( 7 )
 
 [node name="Ground" type="CSGMesh" parent="."]
@@ -37,11 +36,11 @@ cast_shadow = 0
 mesh = SubResource( 1 )
 
 [node name="Castle0" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 450 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 215.652 )
 spawn_units = true
 
 [node name="Castle1" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -450 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -199.31 )
 team_id = 1
 spawn_units = true
 
@@ -56,12 +55,12 @@ directional_shadow_mode = 0
 directional_shadow_depth_range = 1
 directional_shadow_max_distance = 64.3
 
-[node name="Tower2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97166, 0.0209975, -9.38946 )
+[node name="Tower" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.825, 0, -2.143 )
 team_id = 1
 
-[node name="Tower4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60923, 0.0209975, -10.3789 )
+[node name="Tower3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.817, 0, -2.767 )
 team_id = 1
 
 [node name="box" parent="." instance=ExtResource( 6 )]

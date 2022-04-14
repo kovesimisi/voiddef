@@ -2,6 +2,8 @@ extends Spatial
 
 var type = "castle"
 var hp = 10
+var max_towers = 3
+var towers = []
 
 export var team_id = 0
 export var spawn_units = false
@@ -27,7 +29,6 @@ func hit(dmg = 1):
 		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
 
 func spawn_unit():
-	print("spawn unit")
 	var spawned = unit.instance() as Spatial
 	spawned.transform.origin = spawner.global_transform.origin
 	
@@ -40,7 +41,17 @@ func spawn_unit():
 
 
 func spawn_tower(position):
+	if towers.size() >= max_towers:
+		return false
+		
 	var spawned = tower.instance() as Spatial
 	spawned.transform.origin = position
 	spawned.team_id = team_id
+	towers.append(spawned)
 	$"../".add_child(spawned)
+	
+	return true
+
+func destroy_tower(tower):
+	towers.erase(tower)
+	tower.queue_free()
