@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="shader_box" type="CSGBox"]
-width = 0.001
-height = 0.001
-depth = 0.001

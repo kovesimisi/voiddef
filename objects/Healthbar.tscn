@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/Healthbar.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/Healthbar.gd" type="Script" id=1]
 
 [sub_resource type="QuadMesh" id=6]
 
@@ -26,6 +26,7 @@ void fragment() {
 "
 
 [sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
 shader = SubResource( 7 )
 shader_param/value = 0.5
 

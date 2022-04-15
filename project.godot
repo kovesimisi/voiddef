@@ -20,7 +20,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Settings="*res://scripts/util/Settings.gd"
-GameManager="*res://scripts/Game_manager.gd"
+GameManager="*res://scripts/util/GameManager.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
@@ -30,12 +34,11 @@ window/size/fullscreen=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [gui]
 
 theme/custom="res://ui_themes/default.tres"
-theme/custom_font="res://fonts/pixel_font.tres"
 
 [input]
 

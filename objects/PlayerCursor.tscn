@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/Player_cursor.gd" type="Script" id=1]
-[ext_resource path="res://objects/materials/PlayerCursor.tres" type="Material" id=2]
+[ext_resource path="res://scripts/util/PlayerCursor.gd" type="Script" id=1]
+[ext_resource path="res://objects/materials/mat_player_cursor.tres" type="Material" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 2.0
