@@ -42,7 +42,6 @@ func shoot():
 	timer.start()
 	audio_player.play()
 
-
 func _out_range(body):
 		#TODO: fix collision layers
 	if not "type" in body or body.type!="unit" or body.team_id == team_id:
@@ -54,7 +53,6 @@ func _process(delta):
 	shoot()
 
 func hit(dmg = 1):
-	print("tower hit")
 	hp -= dmg
 	
 	healthbar.value = float(hp) / max_hp

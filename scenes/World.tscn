@@ -37,7 +37,6 @@ mesh = SubResource( 1 )
 
 [node name="Castle0" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 215.652 )
-spawn_units = true
 
 [node name="Castle1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -199.31 )

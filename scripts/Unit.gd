@@ -22,6 +22,8 @@ func _process(delta):
 	dir = dir.normalized() * spd
 	var hit = move_and_collide(dir * delta)
 	if hit:
+		if "type" in hit.collider and hit.collider.type != "tower" or hit.collider.type != "castle":
+			return
 		if "team_id" in hit.collider and hit.collider.team_id == team_id : 
 			return
 		if hit.collider.has_method("hit"):
@@ -31,5 +33,6 @@ func _process(delta):
 func hit(dmg = 1):
 	hp -= dmg
 	healthbar.value = float(hp) / max_hp
+	
 	if hp == 0:
 		queue_free()
