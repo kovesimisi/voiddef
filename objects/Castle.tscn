@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/materials/building.tres" type="Material" id=1]
 [ext_resource path="res://scripts/Castle.gd" type="Script" id=2]
+[ext_resource path="res://objects/Healthbar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5.10421, 3.26258, 2.51518 )
@@ -31,5 +32,8 @@ shape = SubResource( 1 )
 
 [node name="UnitSpawner" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10883, 0, 3.02938 )
+
+[node name="Healthbar" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3.33849, 0, 0, 0, 0.271292, 0, 0, 0, 0.99911, 0, 7.66414, 0 )
 
 [connection signal="timeout" from="Timer" to="." method="spawn_unit"]

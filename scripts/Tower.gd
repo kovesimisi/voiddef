@@ -2,11 +2,13 @@ extends Spatial
 
 var type = "tower"
 export var team_id = 0
-export var hp = 5
+export var max_hp = 5
+onready var hp = max_hp
 
 var projectile
 onready var timer = $Timer
 onready var audio_player = $LaserSound
+onready var healthbar = $Healthbar
 
 var targets = []
 var ready = false
@@ -14,6 +16,7 @@ var ready = false
 func _ready():
 	$Mesh.material = GameManager.tower_materials[team_id]
 	projectile = preload("res://objects/Projectile.tscn")
+	healthbar.value = 1.0
 
 func _in_range(body):
 	#TODO: fix collision layers
@@ -53,5 +56,8 @@ func _process(delta):
 func hit(dmg = 1):
 	print("tower hit")
 	hp -= dmg
+	
+	healthbar.value = float(hp) / max_hp
+	
 	if hp == 0:
 		GameManager.castles[team_id].destroy_tower(self)

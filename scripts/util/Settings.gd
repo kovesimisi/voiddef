@@ -1,8 +1,8 @@
 extends Node
 
-var fxaa = true
+var fxaa = false
 var msaa = Viewport.MSAA_4X
-var shadow_resolution = 1024
+var shadow_resolution = 2048
 
 #todo
 var resolution_scale = 1.0

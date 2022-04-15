@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/materials/building.tres" type="Material" id=1]
 [ext_resource path="res://scripts/Tower.gd" type="Script" id=2]
+[ext_resource path="res://objects/Healthbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/audio/laser1.wav" type="AudioStream" id=4]
 
 [sub_resource type="SphereShape" id=1]
 radius = 12.0
 
-[node name="Tower" type="Spatial"]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 2.57777, 1 )
+
+[node name="Tower" type="StaticBody"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
@@ -41,6 +46,13 @@ monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49944, 0 )
+shape = SubResource( 2 )
+
+[node name="Healthbar" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.52453, 0, 0, 0, 0.271534, 0, 0, 0, 1, 0, 6.70394, 0 )
 
 [connection signal="timeout" from="Timer" to="." method="_cooldown_finished"]
 [connection signal="body_entered" from="Area" to="." method="_in_range"]
