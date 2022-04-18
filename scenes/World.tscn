@@ -17,7 +17,7 @@ sun_angle_min = 0.0
 sun_angle_max = 0.0
 
 [sub_resource type="Environment" id=3]
-background_mode = 2
+background_mode = 3
 background_sky = SubResource( 2 )
 tonemap_mode = 4
 ssao_intensity = 13.08
@@ -50,8 +50,6 @@ transform = Transform( -1.13133e-08, 0.965926, -0.258819, 4.2222e-08, 0.258819, 
 shadow_enabled = true
 shadow_bias = 0.2
 directional_shadow_mode = 0
-directional_shadow_depth_range = 1
-directional_shadow_max_distance = 64.3
 
 [node name="Tower" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.825, 0, -2.143 )

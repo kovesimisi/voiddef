@@ -2,8 +2,8 @@ extends Control
 
 onready var b_single_new = $MarginContainer/VBoxContainer/SingleNewGameButton
 onready var b_multi_new = $MarginContainer/VBoxContainer/MultiNewGameButton
-onready var b_load = $MarginContainer/VBoxContainer/LoadButton
 onready var b_join = $MarginContainer/VBoxContainer/JoinGameButton
+onready var b_host = $MarginContainer/VBoxContainer/HostGameButton
 onready var b_settings = $MarginContainer/VBoxContainer/SettingsButton
 onready var b_exit = $MarginContainer/VBoxContainer/ExitButton
 onready var p_target_uri_popup = $TargetURI
@@ -17,15 +17,8 @@ func _ready():
 		b_exit.get_child(0).text = "TOGGLE FULLSCREEN"
 		b_exit.disconnect("pressed", self, "_on_ExitButton_pressed")
 		b_exit.connect("pressed", self, "_on_toggle_fullscreen")
-	
-	#b_multi_new.focus_mode = Control.FOCUS_NONE
-	#b_multi_new.disabled = true
-	
-	b_load.focus_mode = Control.FOCUS_NONE
-	b_load.disabled = true
-
-	#b_settings.focus_mode = Control.FOCUS_NONE
-	#b_settings.disabled = true
+		b_join.visible = false
+		b_host.visible = false
 	
 	p_target_uri_popup.popup_exclusive = true
 	get_tree().connect("connected_to_server", self, "_on_connection_successful")
