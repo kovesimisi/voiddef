@@ -5,7 +5,8 @@ var _config = {
 	resolution_scale = 1.0,
 	fxaa = false,
 	msaa = Viewport.MSAA_4X,
-	shadow_resolution = 2048
+	shadow_resolution = 2048,
+	fps = 60
 }
 
 var user_name setget _set_user_name, _get_user_name
@@ -13,6 +14,7 @@ var msaa setget _set_msaa, _get_msaa
 var fxaa setget _set_fxaa, _get_fxaa
 var resolution_scale setget _set_res_scale, _get_res_scale
 var shadow_resolution setget _set_shadow_res, _get_shadow_res
+var fps setget _set_fps, _get_fps
 
 
 func _init():
@@ -29,6 +31,7 @@ func load_config():
 
 	_config = JSON.parse(config_file.get_line()).result
 	ProjectSettings.set_setting("directional_shadow/size", _config.shadow_resolution)
+	Engine.target_fps = _config.fps
 
 
 func save_config():
@@ -76,3 +79,10 @@ func _set_shadow_res(res: int):
 
 func _get_shadow_res():
 	return _config.shadow_resolution
+
+func _set_fps(frames: int):
+	_config.fps = frames
+	Engine.target_fps = frames
+
+func _get_fps():
+	return _config.fps
