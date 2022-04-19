@@ -6,6 +6,8 @@ export var team_id = 0
 export var spd = 50
 var castle
 
+var selected=0;
+
 var input = Vector3.ZERO
 
 const UP = "up"
@@ -37,14 +39,18 @@ func _input(event):
 
 	if event.is_action_pressed(SECONDARY_INTERACT):
 		secondary_interact()
+		
+	if event.is_action_pressed("next_tower"):
+		selected=(selected+1)%2
+		
 
 func interact():
 	# selection area empty, place towers
 	if get_overlapping_bodies().size() == 0:
 		if(GameManager.is_multiplayer()):
-			castle.rpc("spawn_tower", global_transform.origin)
+			castle.rpc("spawn_tower", global_transform.origin,selected)
 		else:
-			castle.spawn_tower(global_transform.origin)
+			castle.spawn_tower(global_transform.origin,selected)
 	
 func secondary_interact():
 	if get_overlapping_bodies().size() != 0:
