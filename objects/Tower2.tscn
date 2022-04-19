@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/world/Tower.gd" type="Script" id=2]
+[ext_resource path="res://objects/Healthbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/laser1.wav" type="AudioStream" id=4]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 2.57777, 1 )
+
+[sub_resource type="CylinderMesh" id=9]
+
+[sub_resource type="CylinderMesh" id=10]
+
+[sub_resource type="CubeMesh" id=11]
+
+[sub_resource type="SphereShape" id=1]
+radius = 12.0
+
+[sub_resource type="Shader" id=7]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's SpatialMaterial.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,unshaded;
+uniform float value = 0.5;
+
+
+void vertex() {
+	MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]);
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(vec4(length(WORLD_MATRIX[0].xyz), 0.0, 0.0, 0.0),vec4(0.0, length(WORLD_MATRIX[1].xyz), 0.0, 0.0),vec4(0.0, 0.0, length(WORLD_MATRIX[2].xyz), 0.0),vec4(0.0, 0.0, 0.0, 1.0));
+}
+
+
+
+
+void fragment() {
+	ALBEDO =  mix(vec3(0.6,0.01,0.01),vec3(0.05,0.8,0.01), ceil(clamp(value - UV.r, 0, 1)));
+}
+"
+
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = SubResource( 7 )
+shader_param/value = 0.5
+
+[node name="Tower" type="StaticBody"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49944, 0 )
+shape = SubResource( 2 )
+
+[node name="Visual" type="Spatial" parent="."]
+
+[node name="Mesh" type="CSGMesh" parent="Visual"]
+transform = Transform( 1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 2.5, 0 )
+mesh = SubResource( 9 )
+
+[node name="CSGBox" type="CSGMesh" parent="Visual"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 4.1, 0 )
+mesh = SubResource( 10 )
+
+[node name="CSGBox2" type="CSGMesh" parent="Visual"]
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 5, 0 )
+snap = 0.0001
+mesh = SubResource( 11 )
+
+[node name="LaserSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.21468, 0 )
+stream = ExtResource( 4 )
+unit_db = 8.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Detector" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.24921, 0 )
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Detector"]
+shape = SubResource( 1 )
+
+[node name="Healthbar" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.52453, 0, 0, 0, 0.271534, 0, 0, 0, 1, 0, 6.70394, 0 )
+material = SubResource( 8 )
+
+[connection signal="timeout" from="Timer" to="." method="_cooldown_finished"]
+[connection signal="body_entered" from="Detector" to="." method="_in_range"]
+[connection signal="body_exited" from="Detector" to="." method="_out_range"]

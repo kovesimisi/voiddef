@@ -5,11 +5,13 @@ var hp = 10
 var max_hp = 10
 var max_towers = 3
 var towers = []
+var selected = 0;
 
 export var team_id = 0
 export var spawn_units = false
 onready var unit = preload("res://objects/Unit.tscn")
 onready var tower = preload("res://objects/Tower.tscn")
+onready var tower2 = preload("res://objects/Tower2.tscn")
 
 onready var timer = $Timer
 var enemy_castle = null
@@ -34,6 +36,12 @@ func hit(dmg = 1):
 		#game over
 		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
 
+func _input(event):
+	if event.is_action_pressed("next_tower"):
+		selected=(selected+1)%2
+		print("switch")
+	
+	
 func spawn_unit():
 	if(GameManager.waiting_for_player()):
 		return
@@ -56,7 +64,11 @@ remotesync func spawn_tower(position):
 	if towers.size() >= max_towers:
 		return false
 		
-	var spawned = tower.instance() as Spatial
+	var spawned;
+	if (selected==0):
+		spawned = tower.instance() as Spatial
+	else:
+		spawned = tower2.instance() as Spatial
 	spawned.transform.origin = position
 	spawned.team_id = team_id
 	towers.append(spawned)
