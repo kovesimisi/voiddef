@@ -39,7 +39,6 @@ func shoot():
 	spawned.target = targets.pop_front()
 	spawned.team_id = team_id
 	$"../".add_child(spawned)
-	spawned.reset_physics_interpolation()
 	ready = false
 	timer.start()
 	audio_player.play()
