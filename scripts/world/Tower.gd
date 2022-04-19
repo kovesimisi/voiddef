@@ -36,7 +36,8 @@ func shoot():
 	
 	var spawned = projectile.instance() as Spatial
 	spawned.transform.origin = detector.global_transform.origin
-	spawned.target = targets.pop_front()
+	
+	spawned.target = targets[0]
 	spawned.team_id = team_id
 	$"../".add_child(spawned)
 	ready = false
