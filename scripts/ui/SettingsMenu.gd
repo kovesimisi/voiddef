@@ -18,7 +18,7 @@ func _input(event):
 		Settings.msaa = msaa_slider.value
 		Settings.fxaa = fxaa_toggle.pressed
 		Settings.shadow_resolution = shadow_resolution_values[shadow_slider.value]
-		Settings.fps = fps_values[fps_option_btn.selected]
+		Settings.target_fps = fps_values[fps_option_btn.selected]
 		Settings.save_config()
 		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
 
@@ -28,7 +28,7 @@ func _ready():
 	shadow_slider.value = shadow_resolution_values.find(Settings.shadow_resolution as int)
 	fxaa_toggle.pressed = Settings.fxaa
 	msaa_slider.grab_focus()
-	fps_option_btn.select (fps_values.find(Settings.fps))
+	fps_option_btn.select(fps_values.find(Settings.target_fps))
 
 
 func _on_MSAASlider_value_changed(value: float):

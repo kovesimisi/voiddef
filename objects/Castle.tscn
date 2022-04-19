@@ -34,6 +34,7 @@ shader = SubResource( 7 )
 shader_param/value = 0.5
 
 [node name="Castle" type="StaticBody"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Visual" type="Spatial" parent="."]

@@ -64,6 +64,7 @@ remotesync func spawn_tower(position):
 	
 	return true
 
-func destroy_tower(_tower):
-	towers.erase(_tower)
-	_tower.queue_free()
+remotesync func destroy_tower(_tower):
+	if "type" in _tower and _tower.type == "tower" and _tower.team_id == team_id:
+		towers.erase(_tower)
+		_tower.queue_free()

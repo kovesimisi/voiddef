@@ -17,7 +17,7 @@ func _ready():
 	healthbar.value = 1.0
 	max_hp = hp
 
-func _process(delta):
+func _physics_process(delta):
 	var dir = target.global_transform.origin - global_transform.origin
 	dir = dir.normalized() * spd
 	var hit = move_and_collide(dir * delta)

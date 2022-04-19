@@ -10,6 +10,7 @@ var cursors = {}
 var target_uri = null
 var peer = null
 var enemy_info = null
+var world_boundaries = null
 
 const SERVER_PORT = 6000
 const MAX_PLAYERS = 2

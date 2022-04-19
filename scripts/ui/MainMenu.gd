@@ -17,15 +17,16 @@ func _ready():
 		b_exit.get_child(0).text = "TOGGLE FULLSCREEN"
 		b_exit.disconnect("pressed", self, "_on_ExitButton_pressed")
 		b_exit.connect("pressed", self, "_on_toggle_fullscreen")
-		b_join.visible = false
+		# No low level networking available in browsers
+		# See: https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#networking
 		b_host.visible = false
+		b_join.visible = false
 	
 	p_target_uri_popup.popup_exclusive = true
 	get_tree().connect("connected_to_server", self, "_on_connection_successful")
 	get_tree().connect("connection_failed", self, "_on_connection_failed")
 	
-	if(!OS.has_feature("standalone")):
-		p_target_uri.text = "localhost"
+	p_target_uri.text = "localhost"
 	
 	b_single_new.grab_focus()
 

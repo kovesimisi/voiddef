@@ -6,7 +6,7 @@ var atk = 1
 
 var target : Spatial
 
-func _process(delta): 
+func _physics_process(delta): 
 	if not is_instance_valid(target):
 		queue_free()
 		return
