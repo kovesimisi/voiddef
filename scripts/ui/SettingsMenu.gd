@@ -11,7 +11,7 @@ onready var vsync_toggle = $VBoxContainer/VSyncBox/ValueToggle
 const msaa_value_names = ["OFF", "MSAA 2x", "MSAA 4x", "MSAA 8x"]
 const shadow_resolution_values = [512, 1024, 2048, 4096]
 const shadow_resolution_names = ["Low", "Medium", "High", "Ultra"]
-const fps_values = [5, 30, 60, 120, 144]
+const fps_values = [0, 5, 30, 60, 120, 144]
 
 
 func _input(event):
