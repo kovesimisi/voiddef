@@ -13,6 +13,7 @@ onready var window_size = OS.window_size
 
 func _ready():
 	translation = cursor.translation + pos_offset
+	if team_id == 1 : camera_speed *= -1.0
 	
 
 func _process(delta):
