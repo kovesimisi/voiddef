@@ -8,3 +8,4 @@ func _ready():
 	shadow_atlas_quad_2 = Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_4
 	shadow_atlas_quad_3 = Viewport.SHADOW_ATLAS_QUADRANT_SUBDIV_16
 	Engine.target_fps = Settings.fps
+	#OS.set_use_vsync = Settings.vsync

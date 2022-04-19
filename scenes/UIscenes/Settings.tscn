@@ -124,5 +124,24 @@ text = "5"
 items = [ "5", null, false, 0, null, "30", null, false, 1, null, "60", null, false, 2, null, "120", null, false, 3, null, "144", null, false, 4, null ]
 selected = 0
 
+[node name="VSyncBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 108.0
+margin_right = 273.0
+margin_bottom = 148.0
+
+[node name="OptionLabel" type="Label" parent="VBoxContainer/VSyncBox"]
+margin_top = 13.0
+margin_right = 37.0
+margin_bottom = 27.0
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+text = "VSync"
+
+[node name="ValueToggle" type="CheckButton" parent="VBoxContainer/VSyncBox"]
+margin_left = 197.0
+margin_right = 273.0
+margin_bottom = 40.0
+size_flags_horizontal = 10
+
 [connection signal="value_changed" from="VBoxContainer/MSAAHBox/ValueSlider" to="." method="_on_MSAASlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ShadowsHBox/ValueSlider" to="." method="_on_ShadowSlider_value_changed"]

@@ -6,6 +6,7 @@ onready var fxaa_toggle = $VBoxContainer/FXAAHBox/ValueToggle
 onready var shadow_slider = $VBoxContainer/ShadowsHBox/ValueSlider
 onready var shadow_label = $VBoxContainer/ShadowsHBox/ValueLabel
 onready var fps_option_btn = $VBoxContainer/FPSHBox/OptionButton
+onready var vsync_toggle = $VBoxContainer/VSyncBox/ValueToggle
 
 const msaa_value_names = ["OFF", "MSAA 2x", "MSAA 4x", "MSAA 8x"]
 const shadow_resolution_values = [512, 1024, 2048, 4096]
@@ -19,6 +20,7 @@ func _input(event):
 		Settings.fxaa = fxaa_toggle.pressed
 		Settings.shadow_resolution = shadow_resolution_values[shadow_slider.value]
 		Settings.fps = fps_values[fps_option_btn.selected]
+		Settings.vsync = vsync_toggle.pressed
 		Settings.save_config()
 		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
 
@@ -29,6 +31,7 @@ func _ready():
 	fxaa_toggle.pressed = Settings.fxaa
 	msaa_slider.grab_focus()
 	fps_option_btn.select (fps_values.find(Settings.fps))
+	vsync_toggle.pressed = Settings.vsync
 
 
 func _on_MSAASlider_value_changed(value: float):
