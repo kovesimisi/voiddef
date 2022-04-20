@@ -14,6 +14,7 @@ func _ready():
 func _exit_tree():
 	print("Tearing down")
 	get_tree().network_peer = null
+	GameManager.peer = null
 
 
 func _on_new_connection(id: int):
