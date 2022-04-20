@@ -1,7 +1,6 @@
 [gd_scene format=2]
 
 [node name="TargetURI" type="WindowDialog"]
-visible = true
 margin_left = 66.0
 margin_top = 62.0
 margin_right = 588.0
