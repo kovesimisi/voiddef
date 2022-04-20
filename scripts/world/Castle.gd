@@ -32,8 +32,12 @@ func hit(dmg = 1):
 	healthbar.value = float(hp) / max_hp
 	
 	if hp <= 0:
+		if GameManager.is_multiplayer() :
+			GameManager.rpc("game_over", team_id)
+		else:
+			GameManager.game_over(team_id)
 		#game over
-		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
+#		get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
 
 
 	

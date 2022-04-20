@@ -24,6 +24,7 @@ func _init():
 		mat = SpatialMaterial.new()
 		mat.albedo_color = c
 		tower_materials.append(mat)
+		pause_mode = Node.PAUSE_MODE_PROCESS
 
 func game_start(multiplayer = false):
 	if(multiplayer):
@@ -34,3 +35,22 @@ func waiting_for_player():
 
 func is_multiplayer():
 	return peer != null
+
+func show_dialog(title, text):
+	var dialog = AcceptDialog.new()
+	get_tree().root.add_child(dialog)
+	dialog.pause_mode = Node.PAUSE_MODE_PROCESS
+	dialog.window_title = title
+	dialog.dialog_text = text
+	dialog.popup_centered_minsize(Vector2(150,50))
+	return dialog
+
+func load_menu():
+	get_tree().paused = false
+	get_tree().change_scene("res://scenes/UIscenes/MainMenu.tscn")
+	
+
+remotesync func game_over(team_id):
+	get_tree().paused = true
+	var dialog = show_dialog("Game over","Player %d has won" % (team_id + 1))
+	dialog.connect("confirmed", self, "load_menu")
