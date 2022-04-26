@@ -52,6 +52,18 @@ func _input(event):
 func interact():
 	# selection area empty, place towers
 	if get_overlapping_bodies().size() == 0:
+		if (selected==0 and money<2):
+			return
+		elif(selected==0 and money>=2):
+			money = money -2
+		if (selected==1 and money<4):
+			return
+		elif(selected==1 and money>=4):
+			money = money -4
+		if (selected==2 and money<8):  #not possible yet, selected cant be 2
+			return
+		elif(selected==2 and money>=8):
+			money = money -8
 		if(GameManager.is_multiplayer()):
 			castle.rpc("spawn_tower", global_transform.origin,selected)
 		else:
@@ -103,4 +115,3 @@ func _physics_process(_delta):
 
 func _on_Timer_timeout():
 	money = money +1
-	
