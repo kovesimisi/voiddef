@@ -57,7 +57,7 @@ func interact():
 	#ineract on castle, spawn untis for click
 	if get_overlapping_bodies().size() != 0:
 		if(GameManager.is_multiplayer()):
-			castle.rpc("spawn_unit", get_overlapping_bodies()[0])
+			castle.rpc("spawn_unit", get_overlapping_bodies()[0].team_id)     #.team_id hozzaadva
 		else:
 			castle.spawn_unit(get_overlapping_bodies()[0])
 	

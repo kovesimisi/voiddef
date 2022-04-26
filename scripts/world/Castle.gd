@@ -47,10 +47,14 @@ func hit(dmg = 1):
 	
 	
 remotesync func spawn_unit(_onCastle):
+	print("spawnunit")
+	#print(_onCastle.team_id)
+	print(team_id)
 	if(GameManager.waiting_for_player()):
 		return
 	
-	if "type" in _onCastle and _onCastle.type == "castle" and _onCastle.team_id == team_id:
+	#"type" in _onCastle and _onCastle.type == "castle"   kiszedve a feltételből
+	if _onCastle == team_id:
 		var spawned;
 		if (unitType == 0):
 			spawned = unit.instance() as Spatial
