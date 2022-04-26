@@ -46,7 +46,7 @@ func hit(dmg = 1):
 
 	
 	
-remotesync func spawn_unit(_onCastle):
+remotesync func spawn_unit(_onCastle,unittype):
 	print("spawnunit")
 	#print(_onCastle.team_id)
 	print(team_id)
@@ -56,11 +56,11 @@ remotesync func spawn_unit(_onCastle):
 	#"type" in _onCastle and _onCastle.type == "castle"   kiszedve a feltételből
 	if _onCastle == team_id:
 		var spawned;
-		if (unitType == 0):
+		if (unittype == 0):
 			spawned = unit.instance() as Spatial
-		elif(unitType == 1):
+		elif(unittype == 1):
 			spawned = unit2.instance() as Spatial
-		elif(unitType == 2):
+		elif(unittype == 2):
 			spawned = unit3.instance() as Spatial
 		spawned.transform.origin = spawner.global_transform.origin
 	
