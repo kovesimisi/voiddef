@@ -7,6 +7,7 @@ export var spd = 50
 var castle
 
 var selected=0;
+var unitType = 0;
 
 var input = Vector3.ZERO
 
@@ -41,6 +42,9 @@ func _input(event):
 	if event.is_action_pressed("next_tower"):
 		selected=(selected+1)%2
 		
+	if event.is_action_pressed("next_unit"):
+		unitType = (unitType+1)%3
+		castle.unitType = unitType
 
 func interact():
 	# selection area empty, place towers
@@ -49,6 +53,13 @@ func interact():
 			castle.rpc("spawn_tower", global_transform.origin,selected)
 		else:
 			castle.spawn_tower(global_transform.origin,selected)
+	
+	#ineract on castle, spawn untis for click
+	if get_overlapping_bodies().size() != 0:
+		if(GameManager.is_multiplayer()):
+			castle.rpc("spawn_unit", get_overlapping_bodies()[0])
+		else:
+			castle.spawn_unit(get_overlapping_bodies()[0])
 	
 func secondary_interact():
 	if get_overlapping_bodies().size() != 0:

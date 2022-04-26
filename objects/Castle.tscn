@@ -65,5 +65,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10883, 0, 3.02938 )
 [node name="Healthbar" parent="." instance=ExtResource( 3 )]
 transform = Transform( 3.33849, 0, 0, 0, 0.271292, 0, 0, 0, 0.99911, 0, 7.66414, 0 )
 material = SubResource( 8 )
-
-[connection signal="timeout" from="Timer" to="." method="spawn_unit"]
