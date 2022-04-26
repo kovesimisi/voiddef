@@ -47,9 +47,6 @@ func hit(dmg = 1):
 	
 	
 remotesync func spawn_unit(_onCastle,unittype):
-	print("spawnunit")
-	#print(_onCastle.team_id)
-	print(team_id)
 	if(GameManager.waiting_for_player()):
 		return
 	

@@ -8,6 +8,7 @@ var castle
 
 var selected=0;
 var unitType = 0;
+var money=0
 
 var input = Vector3.ZERO
 
@@ -18,6 +19,7 @@ const RIGHT = "right"
 const INTERACT = "interact"
 const SECONDARY_INTERACT = "secondary_interact"
 
+onready var timer = $Timer
 onready var vp = $"/root/Root/ViewportContainer/Viewport"
 onready var camera = vp.get_camera()
 
@@ -31,6 +33,7 @@ func _ready():
 	$Mesh.material.set_shader_param("albedo_color",  GameManager.team_colors[team_id])
 	
 	castle = GameManager.castles[team_id]
+	timer.start()
 
 func _input(event):
 	if event.is_action_pressed(INTERACT):
@@ -56,6 +59,14 @@ func interact():
 	
 	#ineract on castle, spawn untis for click
 	if get_overlapping_bodies().size() != 0:
+		if (unitType==1 and money < 5):
+			return
+		elif(unitType==1 and money>=5):
+			money = money -5
+		if (unitType==2 and money < 10):
+			return
+		elif(unitType==2 and money>=10):
+			money = money - 10
 		if(GameManager.is_multiplayer()):
 			castle.rpc("spawn_unit", get_overlapping_bodies()[0].team_id,unitType)     #.team_id hozzaadva
 		else:
@@ -89,3 +100,7 @@ func _physics_process(_delta):
 
 	if "position" in result:
 		translation = result.position
+
+func _on_Timer_timeout():
+	money = money +1
+	
