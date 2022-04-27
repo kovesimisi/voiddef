@@ -4,7 +4,6 @@ variables:
   EXPORT_NAME: void_defender
 
 stages:
-  - cleanup
   - test
   - export
   - deploy
@@ -62,9 +61,3 @@ pages:
       - public
   only: 
     - main
-
-cleanup:
-  stage: cleanup
-  when: always
-  script:
-    rm -rf *
