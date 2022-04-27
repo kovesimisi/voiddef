@@ -50,8 +50,10 @@ func _input(event):
 		castle.unitType = unitType
 
 func interact():
+	var overlapping = get_overlapping_bodies()
+	
 	# selection area empty, place towers
-	if get_overlapping_bodies().size() == 0:
+	if overlapping.size() == 0:
 		if (selected==0 and money<2):
 			return
 		elif(selected==0 and money>=2):
@@ -69,8 +71,8 @@ func interact():
 		else:
 			castle.spawn_tower(global_transform.origin,selected)
 	
-	#ineract on castle, spawn untis for click
-	if get_overlapping_bodies().size() != 0:
+	#something overlaps
+	else:
 		if (unitType==1 and money < 5):
 			return
 		elif(unitType==1 and money>=5):
@@ -79,10 +81,11 @@ func interact():
 			return
 		elif(unitType==2 and money>=10):
 			money = money - 10
+		
 		if(GameManager.is_multiplayer()):
-			castle.rpc("spawn_unit", get_overlapping_bodies()[0].team_id,unitType)     #.team_id hozzaadva
+			castle.rpc("spawn_unit", unitType) 
 		else:
-			castle.spawn_unit(get_overlapping_bodies()[0].team_id,unitType)
+			castle.spawn_unit(unitType)
 	
 func secondary_interact():
 	if get_overlapping_bodies().size() != 0:

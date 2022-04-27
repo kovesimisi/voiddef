@@ -46,29 +46,27 @@ func hit(dmg = 1):
 
 	
 	
-remotesync func spawn_unit(_onCastle,unittype):
+remotesync func spawn_unit(unittype):
 	if(GameManager.waiting_for_player()):
-		return
+		return false
 	
-	#"type" in _onCastle and _onCastle.type == "castle"   kiszedve a feltételből
-	if _onCastle == team_id:
-		var spawned;
-		if (unittype == 0):
-			spawned = unit.instance() as Spatial
-		elif(unittype == 1):
-			spawned = unit2.instance() as Spatial
-		elif(unittype == 2):
-			spawned = unit3.instance() as Spatial
-		spawned.transform.origin = spawner.global_transform.origin
+	var spawned;
+	if (unittype == 0):
+		spawned = unit.instance() as Spatial
+	elif(unittype == 1):
+		spawned = unit2.instance() as Spatial
+	elif(unittype == 2):
+		spawned = unit3.instance() as Spatial
+	spawned.transform.origin = spawner.global_transform.origin
 	
-		if not is_instance_valid(enemy_castle): 
-			enemy_castle = GameManager.castles[1 if team_id == 0 else 0]
-	
-		spawned.target = enemy_castle
-		spawned.team_id = team_id
-		$"../".add_child(spawned)
+	if not is_instance_valid(enemy_castle): 
+		enemy_castle = GameManager.castles[1 if team_id == 0 else 0]
+
+	spawned.target = enemy_castle
+	spawned.team_id = team_id
+	$"../".add_child(spawned)
 		
-		return true
+	return true
 
 
 remotesync func spawn_tower(position,selected):
