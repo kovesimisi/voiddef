@@ -1,10 +1,5 @@
 image: barichello/godot-ci:3.4.4
 
-cache:
-  key: import-assets
-  paths:
-    - .import/
-
 variables:
   EXPORT_NAME: void_defender
 
@@ -23,6 +18,7 @@ unit-test:
 web:
   stage: export
   script:
+    - godot --editor --quit
     - mkdir -v -p build/web
     - godot -v --export "HTML5" build/web/index.html
   artifacts:
@@ -33,6 +29,7 @@ web:
 linux:
   stage: export
   script:
+    - godot --editor --quit
     - mkdir -v -p build/linux
     - godot -v --export "Linux/X11" build/linux/$EXPORT_NAME.x86_64
   artifacts:
@@ -43,6 +40,7 @@ linux:
 windows:
   stage: export
   script:
+    - godot --editor --quit
     - mkdir -v -p build/windows
     - godot -v --export "Windows Desktop" build/windows/$EXPORT_NAME.exe
   artifacts:
