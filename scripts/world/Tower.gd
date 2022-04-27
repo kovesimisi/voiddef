@@ -16,7 +16,7 @@ var ready = false
 
 func _ready():
 	$Visual/Mesh.material = GameManager.tower_materials[team_id]
-	projectile = preload("res://objects/Projectile.tscn")
+	projectile = load("res://objects/Projectile.tscn")
 	healthbar.value = 1.0
 
 func _in_range(body):

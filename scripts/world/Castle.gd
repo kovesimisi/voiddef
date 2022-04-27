@@ -10,11 +10,11 @@ var money=0
 
 export var team_id = 0
 #export var spawn_units = false
-onready var unit = preload("res://objects/Unit.tscn")
-onready var unit2 = preload("res://objects/Unit2.tscn")
-onready var unit3 = preload("res://objects/Unit3.tscn")
-onready var tower = preload("res://objects/Tower.tscn")
-onready var tower2 = preload("res://objects/Tower2.tscn")
+onready var unit = load("res://objects/Unit.tscn")
+onready var unit2 = load("res://objects/Unit2.tscn")
+onready var unit3 = load("res://objects/Unit3.tscn")
+onready var tower = load("res://objects/Tower.tscn")
+onready var tower2 = load("res://objects/Tower2.tscn")
 
 onready var timer = $Timer
 var enemy_castle = null
