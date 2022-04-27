@@ -65,5 +65,6 @@ pages:
 
 cleanup:
   stage: cleanup
+  when: always
   script:
     ls
