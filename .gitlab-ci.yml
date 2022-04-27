@@ -4,10 +4,10 @@ variables:
   EXPORT_NAME: void_defender
 
 stages:
+  - cleanup
   - test
   - export
   - deploy
-  - cleanup
 
 unit-test:
   stage: test
