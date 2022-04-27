@@ -7,6 +7,7 @@ stages:
   - test
   - export
   - deploy
+  - cleanup
 
 unit-test:
   stage: test
@@ -61,3 +62,8 @@ pages:
       - public
   only: 
     - main
+
+cleanup:
+  stage: cleanup
+  script:
+    ls
