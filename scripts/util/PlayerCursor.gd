@@ -54,33 +54,23 @@ func interact():
 	
 	# selection area empty, place towers
 	if overlapping.size() == 0:
-		if (selected==0 and money<2):
+		if(money<(selected+1)*2):
 			return
-		elif(selected==0 and money>=2):
-			money = money -2
-		if (selected==1 and money<4):
-			return
-		elif(selected==1 and money>=4):
-			money = money -4
-		if (selected==2 and money<8):  #not possible yet, selected cant be 2
-			return
-		elif(selected==2 and money>=8):
-			money = money -8
+		else:
+			money = money - (selected+1)*2
+		
 		if(GameManager.is_multiplayer()):
 			castle.rpc("spawn_tower", global_transform.origin,selected)
 		else:
 			castle.spawn_tower(global_transform.origin,selected)
 	
 	#something overlaps
-	else:
-		if (unitType==1 and money < 5):
+	elif("type" in overlapping[0] and overlapping[0].type=="castle" and overlapping[0].team_id == team_id):
+		if (money < unitType*5):
 			return
-		elif(unitType==1 and money>=5):
-			money = money -5
-		if (unitType==2 and money < 10):
-			return
-		elif(unitType==2 and money>=10):
-			money = money - 10
+		else:
+			money = money - unitType*5
+		
 		
 		if(GameManager.is_multiplayer()):
 			castle.rpc("spawn_unit", unitType) 
