@@ -67,4 +67,4 @@ cleanup:
   stage: cleanup
   when: always
   script:
-    ls
+    rm -rf *
