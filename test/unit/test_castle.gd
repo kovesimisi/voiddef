@@ -1,5 +1,8 @@
 extends 'res://addons/gut/test.gd'
 
+func before_all():
+	GameManager.debug_enabled = true
+
 func test_castle_hit():
 	var res = load('res://objects/Castle.tscn')
 	var castle = res.instance()
@@ -22,15 +25,18 @@ func test_castle_gameover():
 func test_castle_spawn_unit():
 	var res = load('res://objects/Castle.tscn')
 	var castle = res.instance()
+	var enemy_castle = res.instance()
+	enemy_castle.team_id = 1
 	add_child(castle)
-	var t = castle.spawn_unit(1, 2)
-	assert_eq(t, null)
+	add_child(enemy_castle)
+	var t = castle.spawn_unit(2)
+	assert_true(is_instance_valid(t))
 
 func test_castle_spawn_tower():
 	var res = load('res://objects/Castle.tscn')
 	var castle = res.instance()
 	add_child(castle)
-	var t = castle.spawn_tower(1, 0)
+	var t = castle.spawn_tower(Vector3.ZERO, 0)
 	assert_true(t)
 	pass;
 	
@@ -39,7 +45,7 @@ func test_castle_spawn_tower_overload():
 	var castle = res.instance()
 	add_child(castle)
 	castle.max_towers = 1
-	var t = castle.spawn_tower(1, 0)
+	var t = castle.spawn_tower(Vector3.ZERO, 0)
 	assert_true(t)
-	var t2 = castle.spawn_tower(1, 0)
+	var t2 = castle.spawn_tower(Vector3.ZERO, 0)
 	assert_true(!t2)

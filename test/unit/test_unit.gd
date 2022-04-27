@@ -1,7 +1,7 @@
 extends "res://addons/gut/test.gd"
 
 func before_all():
-	pass
+	GameManager.debug_enabled = true
 	
 func test_unit_hp_decrease_on_hit():
 	var res = load('res://objects/Unit.tscn')

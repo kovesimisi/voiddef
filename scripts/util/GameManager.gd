@@ -15,6 +15,8 @@ var world_boundaries = null
 const SERVER_PORT = 6000
 const MAX_PLAYERS = 2
 
+var debug_enabled = false
+
 func _init():
 	for c in team_colors:
 		var mat = SpatialMaterial.new()
@@ -51,6 +53,7 @@ func load_menu():
 	
 
 remotesync func game_over(team_id):
+	if debug_enabled: return
 	get_tree().paused = true
 	var dialog = show_dialog("Game over","Player %d has won" % (team_id + 1))
 	dialog.connect("confirmed", self, "load_menu")

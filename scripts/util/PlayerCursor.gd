@@ -95,13 +95,6 @@ func secondary_interact():
 			castle.destroy_tower(get_overlapping_bodies()[0])
 
 func _process(_delta):
-	# input.z = (Input.get_action_strength(UP % team_id) - Input.get_action_strength(DOWN % team_id)) * (-1)
-	# input.x = Input.get_action_strength(RIGHT % team_id) - Input.get_action_strength(LEFT % team_id)
-	
-	# if team_id == 1: input *= -1
-	
-	# translation += input * delta * spd
-
 	var mouse = vp.get_mouse_position()
 
 	ray[0] = camera.project_ray_origin(mouse)

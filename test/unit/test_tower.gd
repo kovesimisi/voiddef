@@ -1,5 +1,8 @@
 extends "res://addons/gut/test.gd"
 
+func before_all():
+	GameManager.debug_enabled = true
+
 func test_tower_hit():
 	var res = load('res://objects/Tower.tscn')
 	var tower = res.instance()
