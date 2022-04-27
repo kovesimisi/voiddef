@@ -50,7 +50,7 @@ window/size/fullscreen=true
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
 
 [gui]
 
