@@ -15,7 +15,7 @@
  "inner_class": null,
  "junit_xml_file": "",
  "junit_xml_timestamp": false,
- "log_level": 1,
+ "log_level": 2,
  "opacity": 100,
  "post_run_script": "",
  "pre_run_script": "",
@@ -34,6 +34,6 @@
  "gut_on_top": true,
  "panel_options": {
   "font_name": "CourierPrime",
-  "font_size": 30
+  "font_size": 15
  }
 }
