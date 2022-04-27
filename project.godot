@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "GutHookScript",
+"language": "GDScript",
+"path": "res://addons/gut/hook_script.gd"
+}, {
+"base": "Node",
+"class": "GutTest",
+"language": "GDScript",
+"path": "res://addons/gut/test.gd"
+} ]
+_global_script_class_icons={
+"GutHookScript": "",
+"GutTest": ""
+}
+
 [application]
 
 config/name="VoidDefender"
@@ -109,9 +125,9 @@ vram_compression/import_bptc=true
 vram_compression/import_s3tc=false
 vram_compression/import_etc2=false
 quality/shading/use_physical_light_attenuation=true
-gles3/shaders/shader_compilation_mode=2
-gles3/shaders/shader_compilation_mode.mobile=2
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/filters/msaa=2
 quality/filters/use_debanding=true
 environment/default_environment="res://default_env.tres"
+gles3/shaders/shader_compilation_mode=2
+gles3/shaders/shader_compilation_mode.mobile=2
