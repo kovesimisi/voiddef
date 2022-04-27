@@ -1,16 +1,22 @@
-extends Node
+extends 'res://addons/gut/test.gd'
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func test_something():
+	pass;
+	
+func test_something0():
+	pass;
+	
+func test_something1():
+	pass;
+	
+func test_something2():
+	pass;
+	
+func test_something3():
+	pass;
+	
+func test_something4():
+	pass;
+	
+func test_something5():
+	pass;
