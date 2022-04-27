@@ -16,7 +16,8 @@ stages:
 unit-test:
   stage: test
   script:
-    - godot -d -s --path $PWD addons/gut/gut_cmdln.gd
+    - godot --editor --quit
+    - godot -d -s addons/gut/gut_cmdln.gd
 
 
 web:
