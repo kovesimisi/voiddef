@@ -8,7 +8,7 @@ var castle
 
 var selected=0;
 var unitType = 0;
-var money=0
+
 
 var input = Vector3.ZERO
 
@@ -19,7 +19,7 @@ const RIGHT = "right"
 const INTERACT = "interact"
 const SECONDARY_INTERACT = "secondary_interact"
 
-onready var timer = $Timer
+
 onready var vp = $"/root/Root/ViewportContainer/Viewport"
 onready var camera = vp.get_camera()
 
@@ -33,7 +33,7 @@ func _ready():
 	$Mesh.material.set_shader_param("albedo_color",  GameManager.team_colors[team_id])
 	
 	castle = GameManager.castles[team_id]
-	timer.start()
+	
 
 func _input(event):
 	if event.is_action_pressed(INTERACT):
@@ -47,35 +47,20 @@ func _input(event):
 		
 	if event.is_action_pressed("next_unit"):
 		unitType = (unitType+1)%3
-		castle.unitType = unitType
+		#castle.unitType = unitType
 
 func interact():
 	var overlapping = get_overlapping_bodies()
 	
 	# selection area empty, place towers
 	if overlapping.size() == 0:
-		if(money<(selected+1)*2):
-			return
-		else:
-			money = money - (selected+1)*2
+		castle.trytospawntower(global_transform.origin,selected)
 		
-		if(GameManager.is_multiplayer()):
-			castle.rpc("spawn_tower", global_transform.origin,selected)
-		else:
-			castle.spawn_tower(global_transform.origin,selected)
 	
 	#something overlaps
 	elif("type" in overlapping[0] and overlapping[0].type=="castle" and overlapping[0].team_id == team_id):
-		if (money < unitType*5):
-			return
-		else:
-			money = money - unitType*5
+		castle.trytospawnunit(unitType)
 		
-		
-		if(GameManager.is_multiplayer()):
-			castle.rpc("spawn_unit", unitType) 
-		else:
-			castle.spawn_unit(unitType)
 	
 func secondary_interact():
 	if get_overlapping_bodies().size() != 0:
@@ -99,5 +84,3 @@ func _physics_process(_delta):
 	if "position" in result:
 		translation = result.position
 
-func _on_Timer_timeout():
-	money = money +1

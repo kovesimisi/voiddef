@@ -5,7 +5,8 @@ var hp = 10
 var max_hp = 10
 var max_towers = 3
 var towers = []
-var unitType = 0
+#var unitType = 0
+var money=0
 
 export var team_id = 0
 #export var spawn_units = false
@@ -92,3 +93,29 @@ remotesync func destroy_tower(_tower):
 	if "type" in _tower and _tower.type == "tower" and _tower.team_id == team_id:
 		towers.erase(_tower)
 		_tower.queue_free()
+
+func _on_Timer_timeout():
+	money = money +1
+
+func trytospawnunit(unitType):
+	if (money < unitType*5):
+		return
+	else:
+		money = money - unitType*5
+	
+	
+	if(GameManager.is_multiplayer()):
+		self.rpc("spawn_unit", unitType) 
+	else:
+		self.spawn_unit(unitType)
+
+func trytospawntower(place,selected):
+	if(money<(selected+1)*2):
+		return
+	else:
+		money = money - (selected+1)*2
+	
+	if(GameManager.is_multiplayer()):
+		self.rpc("spawn_tower", place,selected)
+	else:
+		self.spawn_tower(place,selected)
