@@ -18,16 +18,16 @@ expand = true
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -350.0
-margin_top = 79.0
-margin_right = -77.0
-margin_bottom = -95.0
+margin_left = -826.0
+margin_top = 259.0
+margin_right = -461.0
+margin_bottom = -227.0
 alignment = 1
 
 [node name="MSAAHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 187.0
-margin_right = 273.0
-margin_bottom = 203.0
+margin_top = 21.0
+margin_right = 365.0
+margin_bottom = 37.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/MSAAHBox"]
 margin_top = 1.0
@@ -39,7 +39,7 @@ text = "MSAA"
 
 [node name="ValueSlider" type="HSlider" parent="VBoxContainer/MSAAHBox"]
 margin_left = 41.0
-margin_right = 244.0
+margin_right = 336.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -47,18 +47,18 @@ max_value = 3.0
 rounded = true
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/MSAAHBox"]
-margin_left = 248.0
+margin_left = 340.0
 margin_top = 1.0
-margin_right = 273.0
+margin_right = 365.0
 margin_bottom = 15.0
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 0.0
 text = "OFF"
 
 [node name="FXAAHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 207.0
-margin_right = 273.0
-margin_bottom = 247.0
+margin_top = 41.0
+margin_right = 365.0
+margin_bottom = 81.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/FXAAHBox"]
 margin_top = 13.0
@@ -69,15 +69,15 @@ size_flags_stretch_ratio = 0.0
 text = "FXAA"
 
 [node name="ValueToggle" type="CheckButton" parent="VBoxContainer/FXAAHBox"]
-margin_left = 197.0
-margin_right = 273.0
+margin_left = 289.0
+margin_right = 365.0
 margin_bottom = 40.0
 size_flags_horizontal = 10
 
 [node name="ShadowsHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 251.0
-margin_right = 273.0
-margin_bottom = 267.0
+margin_top = 85.0
+margin_right = 365.0
+margin_bottom = 101.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/ShadowsHBox"]
 margin_top = 1.0
@@ -89,7 +89,7 @@ text = "Shadow Resolution"
 
 [node name="ValueSlider" type="HSlider" parent="VBoxContainer/ShadowsHBox"]
 margin_left = 124.0
-margin_right = 244.0
+margin_right = 336.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -97,18 +97,18 @@ max_value = 3.0
 rounded = true
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/ShadowsHBox"]
-margin_left = 248.0
+margin_left = 340.0
 margin_top = 1.0
-margin_right = 273.0
+margin_right = 365.0
 margin_bottom = 15.0
 size_flags_horizontal = 10
 size_flags_stretch_ratio = 0.0
 text = "Low"
 
 [node name="FPSHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 271.0
-margin_right = 273.0
-margin_bottom = 291.0
+margin_top = 105.0
+margin_right = 365.0
+margin_bottom = 125.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/FPSHBox"]
 margin_top = 3.0
@@ -126,31 +126,10 @@ text = "Unlimited"
 items = [ "Unlimited", null, false, 0, null, "5", null, false, 1, null, "30", null, false, 2, null, "60", null, false, 3, null, "120", null, false, 4, null, "144", null, false, 5, null ]
 selected = 0
 
-[node name="WindowMode" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 295.0
-margin_right = 273.0
-margin_bottom = 315.0
-
-[node name="OptionLabel" type="Label" parent="VBoxContainer/WindowMode"]
-margin_top = 3.0
-margin_right = 91.0
-margin_bottom = 17.0
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 0.0
-text = "Window Mode"
-
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/WindowMode"]
-margin_left = 95.0
-margin_right = 190.0
-margin_bottom = 20.0
-text = "Fullscreen"
-items = [ "Fullscreen", null, false, 0, null, "Borderless windowed", null, false, 1, null ]
-selected = 0
-
 [node name="VSyncBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 319.0
-margin_right = 273.0
-margin_bottom = 359.0
+margin_top = 129.0
+margin_right = 365.0
+margin_bottom = 169.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/VSyncBox"]
 margin_top = 13.0
@@ -161,8 +140,27 @@ size_flags_stretch_ratio = 0.0
 text = "VSync"
 
 [node name="ValueToggle" type="CheckButton" parent="VBoxContainer/VSyncBox"]
-margin_left = 197.0
-margin_right = 273.0
+margin_left = 289.0
+margin_right = 365.0
+margin_bottom = 40.0
+size_flags_horizontal = 10
+
+[node name="WindowMode" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 173.0
+margin_right = 365.0
+margin_bottom = 213.0
+
+[node name="OptionLabel" type="Label" parent="VBoxContainer/WindowMode"]
+margin_top = 13.0
+margin_right = 66.0
+margin_bottom = 27.0
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+text = "Fullscreen"
+
+[node name="ValueToggle" type="CheckButton" parent="VBoxContainer/WindowMode"]
+margin_left = 289.0
+margin_right = 365.0
 margin_bottom = 40.0
 size_flags_horizontal = 10
 

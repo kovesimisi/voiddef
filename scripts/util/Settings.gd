@@ -47,13 +47,11 @@ func load_config():
 		_config = loaded
 
 	_config.target_fps = int(_config.target_fps)
-	_config.window_fullscreen = bool(_config.window_fullscreen)
 
 	ProjectSettings.set_setting("directional_shadow/size", _config.shadow_resolution)
 	Engine.target_fps = _config.target_fps
 	OS.vsync_enabled = _config.vsync
 	OS.window_fullscreen = _config.window_fullscreen
-	OS.window_borderless = !_config.window_fullscreen
 
 
 func save_config():
@@ -116,16 +114,9 @@ func _set_vsync(enabled: bool):
 func _get_vsync():
 	return _config.vsync
 
-func _set_window_fullscreen(mode: int):
-	match (mode):
-		0:
-			_config.window_fullscreen = true
-			OS.set_window_fullscreen(true)
-			OS.set_borderless_window(false)
-		1:
-			_config.window_fullscreen = false
-			OS.set_window_fullscreen(false)
-			OS.set_borderless_window(true)
+func _set_window_fullscreen(enabled: bool):
+	_config.window_fullscreen = enabled
+	OS.set_window_fullscreen(_config.window_fullscreen)
 
 func _get_window_fullscreen() -> bool:
 	return _config.window_fullscreen
