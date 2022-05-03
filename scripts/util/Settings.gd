@@ -7,7 +7,8 @@ var _config = {
 	msaa = Viewport.MSAA_4X,
 	shadow_resolution = 2048,
 	target_fps = 60,
-	vsync = true
+	vsync = true,
+	window_fullscreen = true
 }
 
 var user_name setget _set_user_name, _get_user_name
@@ -17,7 +18,7 @@ var resolution_scale setget _set_res_scale, _get_res_scale
 var shadow_resolution setget _set_shadow_res, _get_shadow_res
 var target_fps setget _set_target_fps, _get_target_fps
 var vsync setget _set_vsync, _get_vsync
-
+var window_fullscreen setget _set_window_fullscreen, _get_window_fullscreen
 
 
 func _init():
@@ -46,10 +47,13 @@ func load_config():
 		_config = loaded
 
 	_config.target_fps = int(_config.target_fps)
+	_config.window_fullscreen = bool(_config.window_fullscreen)
 
 	ProjectSettings.set_setting("directional_shadow/size", _config.shadow_resolution)
 	Engine.target_fps = _config.target_fps
 	OS.vsync_enabled = _config.vsync
+	OS.window_fullscreen = _config.window_fullscreen
+	OS.window_borderless = !_config.window_fullscreen
 
 
 func save_config():
@@ -111,3 +115,17 @@ func _set_vsync(enabled: bool):
 
 func _get_vsync():
 	return _config.vsync
+
+func _set_window_fullscreen(mode: int):
+	match (mode):
+		0:
+			_config.window_fullscreen = true
+			OS.set_window_fullscreen(true)
+			OS.set_borderless_window(false)
+		1:
+			_config.window_fullscreen = false
+			OS.set_window_fullscreen(false)
+			OS.set_borderless_window(true)
+
+func _get_window_fullscreen() -> bool:
+	return _config.window_fullscreen
