@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/menubg.png" type="Texture" id=1]
+[ext_resource path="res://ui_themes/hover.tres" type="StyleBox" id=2]
+[ext_resource path="res://ui_themes/defaultY.tres" type="StyleBox" id=3]
+[ext_resource path="res://ui_themes/pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://ui_themes/disabled.tres" type="StyleBox" id=5]
 [ext_resource path="res://assets/ui/logoplaceholder.png" type="Texture" id=6]
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://ui_themes/font.tres" type="DynamicFont" id=8]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -40,10 +45,15 @@ margin_right = 400.0
 margin_bottom = 189.0
 rect_min_size = Vector2( 350, 75 )
 size_flags_horizontal = 5
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SingleNewGameButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 8 )
 text = "SINGLEPLAYER"
 align = 1
 valign = 1
@@ -69,11 +79,15 @@ margin_top = 193.0
 margin_right = 400.0
 margin_bottom = 268.0
 rect_min_size = Vector2( 350, 75 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HostGameButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 161, 58 )
+custom_fonts/font = ExtResource( 8 )
 text = "HOST"
 align = 1
 valign = 1
@@ -83,11 +97,15 @@ margin_top = 272.0
 margin_right = 400.0
 margin_bottom = 347.0
 rect_min_size = Vector2( 350, 75 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/JoinGameButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 161, 58 )
+custom_fonts/font = ExtResource( 8 )
 text = "JOIN"
 align = 1
 valign = 1
@@ -97,10 +115,14 @@ margin_top = 351.0
 margin_right = 400.0
 margin_bottom = 426.0
 rect_min_size = Vector2( 350, 75 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SettingsButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 8 )
 text = "SETTINGS"
 align = 1
 valign = 1
@@ -110,10 +132,14 @@ margin_top = 430.0
 margin_right = 400.0
 margin_bottom = 505.0
 rect_min_size = Vector2( 350, 75 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ExitButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 8 )
 text = "EXIT GAME"
 align = 1
 valign = 1
