@@ -8,7 +8,7 @@ var _config = {
 	shadow_resolution = 2048,
 	target_fps = 60,
 	vsync = true,
-	window_fullscreen = true
+	window_fullscreen = true,
 }
 
 var user_name setget _set_user_name, _get_user_name
