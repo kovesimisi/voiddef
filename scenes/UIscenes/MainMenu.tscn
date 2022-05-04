@@ -5,7 +5,7 @@
 [ext_resource path="res://ui_themes/defaultY.tres" type="StyleBox" id=3]
 [ext_resource path="res://ui_themes/pressed.tres" type="StyleBox" id=4]
 [ext_resource path="res://ui_themes/disabled.tres" type="StyleBox" id=5]
-[ext_resource path="res://assets/ui/logoplaceholder.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/logo.png" type="Texture" id=6]
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://ui_themes/font.tres" type="DynamicFont" id=8]
 
@@ -29,9 +29,9 @@ custom_constants/margin_left = 50
 custom_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 750.0
+margin_left = 830.0
 margin_top = 50.0
-margin_right = 1150.0
+margin_right = 1230.0
 margin_bottom = 670.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -144,8 +144,8 @@ text = "EXIT GAME"
 align = 1
 valign = 1
 
-[node name="Logoplaceholder" type="Sprite" parent="."]
-position = Vector2( 365, 373 )
+[node name="logo" type="Sprite" parent="MarginContainer"]
+position = Vector2( 443, 377 )
 texture = ExtResource( 6 )
 
 [node name="TargetURI" type="WindowDialog" parent="."]
