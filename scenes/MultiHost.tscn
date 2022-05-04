@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/PlayerCursor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/util/CameraController.gd" type="Script" id=2]
 [ext_resource path="res://scripts/util/HostManager.gd" type="Script" id=3]
 [ext_resource path="res://scenes/World.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/util/ViewportConfig.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/gamemusic.wav" type="AudioStream" id=6]
 
 [node name="Root" type="Node"]
 script = ExtResource( 3 )
@@ -38,3 +39,8 @@ projection = 1
 size = 50.0
 far = 150.0
 script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 2.0
+autoplay = true

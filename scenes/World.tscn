@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Castle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/materials/mat_ground.tres" type="Material" id=3]
+[ext_resource path="res://assets/audio/gamemusic.wav" type="AudioStream" id=4]
 [ext_resource path="res://scripts/ui/Gameplay.gd" type="Script" id=7]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -67,3 +68,8 @@ team_id = 1
 [node name="Tower3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.817, 0, -2.767 )
 team_id = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 2.0
+autoplay = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/util/ViewportConfig.gd" type="Script" id=1]
 [ext_resource path="res://scripts/util/CameraController.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/gamemusic.wav" type="AudioStream" id=3]
 
 [node name="Splitscreen" type="HBoxContainer"]
 anchor_right = 1.0
@@ -51,3 +52,8 @@ projection = 1
 size = 50.0
 script = ExtResource( 2 )
 team_id = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+autoplay = true
