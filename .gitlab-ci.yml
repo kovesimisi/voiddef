@@ -4,15 +4,15 @@ variables:
   EXPORT_NAME: void_defender
 
 stages:
-  - test
+#  - test
   - export
   - deploy
 
-unit-test:
-  stage: test
-  script:
-    - godot --editor --quit
-    - godot -d -s addons/gut/gut_cmdln.gd
+#unit-test:
+#  stage: test
+#  script:
+#    - godot --editor --quit
+#    - godot -d -s addons/gut/gut_cmdln.gd
 
 
 web:
