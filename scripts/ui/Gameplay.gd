@@ -8,3 +8,4 @@ func _input(event):
 
 func _ready():
 	GameManager.world_boundaries = world_boundaries_node.shape.extents
+	GlobalAudioPlayer.play_music("game")

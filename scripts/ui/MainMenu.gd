@@ -29,6 +29,8 @@ func _ready():
 	p_target_uri.text = "localhost"
 	
 	b_single_new.grab_focus()
+	
+	GlobalAudioPlayer.play_music("menu")
 
 func _on_ExitButton_pressed():
 	get_tree().quit(0)
