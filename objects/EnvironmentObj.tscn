@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/world/Unit.gd" type="Script" id=1]
-[ext_resource path="res://assets/models/cube.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://scripts/world/EnvironmentObj.gd" type="Script" id=1]
 [ext_resource path="res://objects/Healthbar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=10]
 
 [sub_resource type="Skin" id=9]
 
@@ -41,7 +42,7 @@ script = ExtResource( 1 )
 hp = 4
 
 [node name="Mesh" type="MeshInstance" parent="."]
-mesh = ExtResource( 2 )
+mesh = SubResource( 10 )
 skin = SubResource( 9 )
 material/0 = null
 

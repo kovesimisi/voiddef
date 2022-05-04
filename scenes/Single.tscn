@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/util/ViewportConfig.gd" type="Script" id=2]
 [ext_resource path="res://objects/PlayerCursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/util/CameraController.gd" type="Script" id=4]
+[ext_resource path="res://objects/EnvironmentObj.tscn" type="PackedScene" id=5]
 
 [node name="Root" type="Node"]
 
@@ -35,3 +36,9 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0
 projection = 1
 size = 50.0
 script = ExtResource( 4 )
+
+[node name="Unit" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5286, 0.0501699, 17.8626 )
+
+[node name="Unit3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.872, 0.050169, 12.3502 )
