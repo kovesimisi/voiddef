@@ -52,6 +52,7 @@ func load_config():
 	Engine.target_fps = _config.target_fps
 	OS.vsync_enabled = _config.vsync
 	OS.window_fullscreen = _config.window_fullscreen
+	if (!_config.window_fullscreen): OS.set_window_size(Vector2(1280, 720))
 
 
 func save_config():
@@ -117,6 +118,7 @@ func _get_vsync():
 func _set_window_fullscreen(enabled: bool):
 	_config.window_fullscreen = enabled
 	OS.set_window_fullscreen(_config.window_fullscreen)
+	if (!enabled): OS.set_window_size(Vector2(1280, 720))
 
 func _get_window_fullscreen() -> bool:
 	return _config.window_fullscreen
