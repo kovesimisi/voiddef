@@ -146,7 +146,7 @@ align = 1
 valign = 1
 
 [node name="logo" type="Sprite" parent="MarginContainer"]
-position = Vector2( 443, 377 )
+position = Vector2( 445, 457 )
 texture = ExtResource( 6 )
 
 [node name="TargetURI" type="WindowDialog" parent="."]
