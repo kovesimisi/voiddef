@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/util/ViewportConfig.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/util/CameraController.gd" type="Script" id=4]
 [ext_resource path="res://scripts/util/ClientManager.gd" type="Script" id=5]
 [ext_resource path="res://assets/audio/gamemusic.wav" type="AudioStream" id=6]
+[ext_resource path="res://scripts/util/InGameStats.gd" type="Script" id=7]
+[ext_resource path="res://objects/InGameStats.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Node"]
 script = ExtResource( 5 )
@@ -41,6 +43,42 @@ projection = 1
 size = 50.0
 script = ExtResource( 4 )
 team_id = 1
+
+[node name="statscontainer" type="ViewportContainer" parent="ViewportContainer"]
+modulate = Color( 0.0156863, 0.00392157, 0.0117647, 1 )
+margin_right = 150.0
+margin_bottom = 70.0
+script = ExtResource( 7 )
+
+[node name="TextHeads" parent="ViewportContainer/statscontainer" instance=ExtResource( 8 )]
+anchor_right = 0.072
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 54.2
+margin_bottom = 60.0
+text = "Money: 
+Tower:
+Unit: "
+script = null
+
+[node name="ColorRect" type="ColorRect" parent="ViewportContainer/statscontainer"]
+show_behind_parent = true
+anchor_left = 1.578
+anchor_top = 2.516
+anchor_right = 1.578
+anchor_bottom = 2.516
+margin_left = -236.7
+margin_top = -176.12
+margin_right = -86.7
+margin_bottom = -106.12
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="Label" type="Label" parent="ViewportContainer/statscontainer"]
+margin_left = 65.0
+margin_top = 10.0
+margin_right = 140.0
+margin_bottom = 60.0
+align = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

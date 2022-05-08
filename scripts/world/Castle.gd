@@ -95,6 +95,8 @@ remotesync func destroy_tower(_tower):
 		_tower.queue_free()
 
 func _on_Timer_timeout():
+	if(GameManager.waiting_for_player()):
+		return
 	money = money +1
 
 func trytospawnunit(unitType):
