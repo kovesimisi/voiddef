@@ -100,10 +100,10 @@ func _on_Timer_timeout():
 	money = money +1
 
 func trytospawnunit(unitType):
-	if (money < unitType*5):
+	if (money < (unitType+1)*2):
 		return
 	else:
-		money = money - unitType*5
+		money = money - (unitType+1)*2
 	
 	
 	if(GameManager.is_multiplayer()):

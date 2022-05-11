@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/Castle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/materials/mat_ground.tres" type="Material" id=3]
@@ -27,6 +27,18 @@ glow_enabled = true
 glow_hdr_threshold = 2.0
 glow_bicubic_upscale = true
 adjustment_contrast = 1.08
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.933372, 1.52588e-05, 216.161, 0, 0, 0, 0, 0, 0, -13.1793, 0, 147.226, 0, 0, 0, 0, 0, 0, -42.4903, 0, 62.5494, 0, 0, 0, 0, 0, 0, -43.9192, 0, -18.1756, 0, 0, 0, 0, 0, 0, -36.3201, 0, -118.05, 0, 0, 0, 0, 0, 0, -0.194016, -1.52588e-05, -198.778 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=6]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 2.51997, -1.52588e-05, -199.863, 0, 0, 0, 0, 0, 0, 34.545, 0, -136.356, 0, 0, 0, 0, 0, 0, 36.1733, 0, -66.8782, 0, 0, 0, 0, 0, 0, 42.0606, 0, 18.8028, 0, 0, 0, 0, 0, 0, 49.117, 0, 93.166, 0, 0, 0, 0, 0, 0, 32.9472, 1.52588e-05, 185.611, 0, 0, 0, 0, 0, 0, -0.163425, 1.52588e-05, 216.007 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 7 )
@@ -58,3 +70,19 @@ transform = Transform( -1.13133e-08, 0.965926, -0.258819, 4.2222e-08, 0.258819, 
 shadow_enabled = true
 shadow_bias = 0.2
 directional_shadow_mode = 0
+
+[node name="PathForRed" type="Path" parent="."]
+curve = SubResource( 5 )
+
+[node name="PathFollow" type="PathFollow" parent="PathForRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933372, 1.52588e-05, 216.161 )
+rotation_mode = 2
+loop = false
+
+[node name="PathForBlue" type="Path" parent="."]
+curve = SubResource( 6 )
+
+[node name="PathFollow" type="PathFollow" parent="PathForBlue"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51997, -1.52588e-05, -199.863 )
+rotation_mode = 2
+loop = false
