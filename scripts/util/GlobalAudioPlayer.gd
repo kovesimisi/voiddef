@@ -4,7 +4,7 @@ var music_lib : Dictionary
 var _currently_playing = ""
 
 func _init():
-	volume_db = 2
+	volume_db = linear2db(float(Settings.volume))
 	music_lib["menu"] = load("res://assets/audio/menumusic.wav")
 	music_lib["game"] = load("res://assets/audio/gamemusic.wav")
 	

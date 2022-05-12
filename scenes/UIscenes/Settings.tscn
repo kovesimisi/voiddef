@@ -31,9 +31,8 @@ margin_bottom = -227.0
 alignment = 1
 
 [node name="MSAAHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 11.0
 margin_right = 365.0
-margin_bottom = 32.0
+margin_bottom = 21.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/MSAAHBox"]
 margin_right = 49.0
@@ -68,9 +67,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "OFF"
 
 [node name="FXAAHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 36.0
+margin_top = 25.0
 margin_right = 365.0
-margin_bottom = 76.0
+margin_bottom = 65.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/FXAAHBox"]
 margin_top = 9.0
@@ -89,9 +88,9 @@ size_flags_horizontal = 10
 custom_fonts/font = ExtResource( 4 )
 
 [node name="ShadowsHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 80.0
+margin_top = 69.0
 margin_right = 365.0
-margin_bottom = 101.0
+margin_bottom = 90.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/ShadowsHBox"]
 margin_right = 182.0
@@ -126,9 +125,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "Low"
 
 [node name="FPSHBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 105.0
+margin_top = 94.0
 margin_right = 365.0
-margin_bottom = 134.0
+margin_bottom = 123.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/FPSHBox"]
 margin_top = 4.0
@@ -153,9 +152,9 @@ items = [ "Unlimited", null, false, 0, null, "5", null, false, 1, null, "30", nu
 selected = 0
 
 [node name="VSyncBox" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 138.0
+margin_top = 127.0
 margin_right = 365.0
-margin_bottom = 178.0
+margin_bottom = 167.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/VSyncBox"]
 margin_top = 9.0
@@ -174,9 +173,9 @@ size_flags_horizontal = 10
 custom_fonts/font = ExtResource( 4 )
 
 [node name="WindowMode" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 182.0
+margin_top = 171.0
 margin_right = 365.0
-margin_bottom = 222.0
+margin_bottom = 211.0
 
 [node name="OptionLabel" type="Label" parent="VBoxContainer/WindowMode"]
 margin_top = 9.0
@@ -193,5 +192,43 @@ margin_right = 365.0
 margin_bottom = 40.0
 size_flags_horizontal = 10
 
+[node name="VolumeBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 215.0
+margin_right = 365.0
+margin_bottom = 236.0
+
+[node name="OptionLabel" type="Label" parent="VBoxContainer/VolumeBox"]
+margin_right = 69.0
+margin_bottom = 21.0
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 4 )
+text = "Volume"
+
+[node name="ValueSlider" type="HSlider" parent="VBoxContainer/VolumeBox"]
+margin_left = 73.0
+margin_right = 325.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+custom_icons/grabber_disabled = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 5 )
+custom_styles/slider = ExtResource( 8 )
+custom_styles/grabber_area_highlight = ExtResource( 6 )
+custom_styles/grabber_area = ExtResource( 6 )
+max_value = 10.0
+rounded = true
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer/VolumeBox"]
+margin_left = 329.0
+margin_right = 365.0
+margin_bottom = 21.0
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 4 )
+text = "OFF"
+
 [connection signal="value_changed" from="VBoxContainer/MSAAHBox/ValueSlider" to="." method="_on_MSAASlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ShadowsHBox/ValueSlider" to="." method="_on_ShadowSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VolumeBox/ValueSlider" to="." method="_on_VolumeSlider_value_changed"]

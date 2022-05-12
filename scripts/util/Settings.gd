@@ -9,6 +9,7 @@ var _config = {
 	target_fps = 60,
 	vsync = true,
 	window_fullscreen = true,
+	volume = 1.0,
 }
 
 var user_name setget _set_user_name, _get_user_name
@@ -19,6 +20,7 @@ var shadow_resolution setget _set_shadow_res, _get_shadow_res
 var target_fps setget _set_target_fps, _get_target_fps
 var vsync setget _set_vsync, _get_vsync
 var window_fullscreen setget _set_window_fullscreen, _get_window_fullscreen
+var volume setget _set_volume, _get_volume
 
 
 func _init():
@@ -122,3 +124,9 @@ func _set_window_fullscreen(enabled: bool):
 
 func _get_window_fullscreen() -> bool:
 	return _config.window_fullscreen
+
+func _set_volume(vol: float):
+	_config.volume = vol
+
+func _get_volume () -> float:
+	return _config.volume
