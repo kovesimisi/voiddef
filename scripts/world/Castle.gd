@@ -112,7 +112,7 @@ func trytospawnunit(unitType):
 		self.spawn_unit(unitType)
 
 func trytospawntower(place,selected):
-	if(money<(selected+1)*2):
+	if(money<(selected+1)*2 or towers.size()==max_towers):
 		return
 	else:
 		money = money - (selected+1)*2

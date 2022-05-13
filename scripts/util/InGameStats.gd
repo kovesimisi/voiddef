@@ -18,7 +18,7 @@ func _ready():
 	team_id = cursor.team_id
 	castle = GameManager.castles[team_id]
 
-func _process(delta):
+func _process(_delta):
 	match cursor.unitType:
 		0:
 			unitout = "Prism"
