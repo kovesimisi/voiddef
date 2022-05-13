@@ -3,7 +3,7 @@ extends Node
 
 onready var colorrect = $ColorRect
 onready var thestats = $Label
-onready var cursor = get_parent().get_parent().get_node("World").get_child(get_parent().get_parent().get_node("World").get_child_count()-1)
+onready var cursor = GameManager.cursors[0] if 0 in GameManager.cursors else GameManager.cursors[1]
 
 #get_node("World/PlayerCursor1")
 var team_id
