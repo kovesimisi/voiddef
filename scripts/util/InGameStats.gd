@@ -3,7 +3,7 @@ extends Node
 
 onready var colorrect = $ColorRect
 onready var thestats = $Label
-onready var cursor = get_parent().get_parent().get_node("World").get_child(get_parent().get_parent().get_node("World").get_child_count()-1)
+onready var cursor = GameManager.cursors[0]
 
 #get_node("World/PlayerCursor1")
 var team_id
@@ -18,7 +18,7 @@ func _ready():
 	team_id = cursor.team_id
 	castle = GameManager.castles[team_id]
 
-func _process(delta):
+func _process(_delta):
 	match cursor.unitType:
 		0:
 			unitout = "Prism"
